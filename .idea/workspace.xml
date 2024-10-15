@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="34d69696-2762-4d96-ad19-9ba25784de75" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Resultat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Resultat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resources/application/css.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resources/application/css.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/EtudiantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/EtudiantService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ui/MainInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/MainInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/style.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,15 +20,16 @@
       <list>
         <option value="Class" />
         <option value="HTML File" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2nRhen91Ds3r7dJ36SVp1wtJA9A" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -42,6 +41,7 @@
     "Application.App.executor": "Run",
     "Application.LoginInterface.executor": "Run",
     "Application.Main.executor": "Run",
+    "Application.MainInterface.executor": "Run",
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -49,7 +49,7 @@
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/HP/Downloads/openjfx-17.0.12_windows-x64_bin-sdk/javafx-sdk-17.0.12/lib/javafx.web.jar",
     "onboarding.tips.debug.path": "C:/Users/HP/IdeaProjects/Java_L2/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.lookFeel"

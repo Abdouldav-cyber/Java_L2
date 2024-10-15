@@ -73,7 +73,7 @@ public class MainInterface extends Application {
 
         // Chargement du fichier CSS
         Scene scene = new Scene(layout, 400, 500);
-        scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
 
         primaryStage.setScene(scene);
         primaryStage.show();
