@@ -1,10 +1,9 @@
 package main;
 
-import javafx.application.Application;
-import ui.MainInterface;
+import ui.LoginInterface;
 
 public class App {
     public static void main(String[] args) {
-        Application.launch(MainInterface.class, args);
+        LoginInterface.launch(LoginInterface.class, args);
     }
 }

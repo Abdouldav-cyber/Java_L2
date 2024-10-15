@@ -1,46 +1,93 @@
 package ui;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import services.EtudiantService;
 import models.Etudiant;
+import models.Resultat;
+import services.EtudiantService;
 
-import java.time.LocalDate;
+import java.util.List;
+
 
 public class MainInterface extends Application {
-    private EtudiantService etudiantService = new EtudiantService();
+
+    private final EtudiantService etudiantService = new EtudiantService();
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Gestion des Étudiants - Java_L2");
+        primaryStage.setTitle("Application de Gestion des Étudiants");
 
-        VBox layout = new VBox(10);
-        ListView<String> etudiantListView = new ListView<>();
-        TextField nomField = new TextField();
-        nomField.setPromptText("Nom");
-        TextField prenomField = new TextField();
-        prenomField.setPromptText("Prénom");
+        // Champs de recherche
+        TextField searchField = new TextField();
+        searchField.setPromptText("Rechercher un étudiant par nom ou ID");
 
-        Button ajouterButton = new Button("Ajouter Étudiant");
-        ajouterButton.setOnAction(e -> {
-            String nom = nomField.getText();
-            String prenom = prenomField.getText();
-            Etudiant etudiant = new Etudiant(
-                    String.valueOf(etudiantService.listerEtudiants().size() + 1),
-                    nom, prenom, LocalDate.now()
-            );
-            etudiantService.ajouterEtudiant(etudiant);
-            etudiantListView.getItems().add(nom + " " + prenom);
-            nomField.clear();
-            prenomField.clear();
+        Button searchButton = new Button("Rechercher");
+        ListView<String> resultList = new ListView<>();
+
+        // Action du bouton de recherche
+        searchButton.setOnAction(e -> {
+            String keyword = searchField.getText();
+            resultList.getItems().clear();
+            List<Etudiant> results = etudiantService.rechercherEtudiant(keyword);
+
+            if (results.isEmpty()) {
+                resultList.getItems().add("Aucun étudiant trouvé.");
+            } else {
+                results.forEach(etudiant ->
+                        resultList.getItems().add(etudiant.getNom() + " - " + etudiant.getId())
+                );
+            }
         });
 
-        layout.getChildren().addAll(nomField, prenomField, ajouterButton, etudiantListView);
-        Scene scene = new Scene(layout, 400, 300);
+        // Champs pour ajouter un résultat académique
+        TextField coursField = new TextField();
+        coursField.setPromptText("Nom du cours");
+
+        TextField noteField = new TextField();
+        noteField.setPromptText("Note");
+
+        Button ajouterResultatBtn = new Button("Ajouter Résultat");
+        ajouterResultatBtn.setOnAction(e -> {
+            try {
+                String cours = coursField.getText();
+                int note = Integer.parseInt(noteField.getText());
+
+                Resultat resultat = new Resultat(note, cours);
+                System.out.println("Résultat ajouté : " + resultat.getCours() + " - Note : " + resultat.getNote());
+
+                // Efface les champs après l'ajout
+                coursField.clear();
+                noteField.clear();
+            } catch (NumberFormatException ex) {
+                showAlert("Erreur", "Veuillez entrer une note valide.");
+            }
+        });
+
+        // Disposition principale
+        VBox layout = new VBox(10, searchField, searchButton, resultList, coursField, noteField, ajouterResultatBtn);
+        layout.setPadding(new Insets(20));
+
+        // Chargement du fichier CSS
+        Scene scene = new Scene(layout, 400, 500);
+        scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    // Méthode pour afficher une alerte
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }

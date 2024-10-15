@@ -1,17 +1,17 @@
 package models;
 
 public class Resultat {
-    private String note;
-    private String semestre;
+    private int note;
+    private String cours;
     private boolean valide;
 
-    public Resultat(String note, String semestre, boolean valide) {
+    public Resultat(int note, String cours) {
         this.note = note;
-        this.semestre = semestre;
-        this.valide = valide;
+        this.cours = cours;
+        this.valide = note >= 10;
     }
 
-    public String getNote() { return note; }
-    public String getSemestre() { return semestre; }
+    public int getNote() { return note; }
+    public String getCours() { return cours; }
     public boolean isValide() { return valide; }
 }
