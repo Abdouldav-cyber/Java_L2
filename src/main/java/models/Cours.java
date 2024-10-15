@@ -1,22 +1,19 @@
 package models;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Cours {
-    private String code;
+    private String id;
     private String nom;
-    private String professeur;
-    private List<Etudiant> etudiantsInscrits;
 
-    public Cours(String code, String nom, String professeur) {
-        this.code = code;
+    public Cours(String id, String nom) {
+        this.id = id;
         this.nom = nom;
-        this.professeur = professeur;
-        this.etudiantsInscrits = new ArrayList<>();
     }
 
-    public void inscrireEtudiant(Etudiant etudiant) {
-        etudiantsInscrits.add(etudiant);
+    public String getId() {
+        return id;
+    }
+
+    public String getNom() {
+        return nom;
     }
 }

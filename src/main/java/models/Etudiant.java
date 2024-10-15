@@ -1,30 +1,54 @@
 package models;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Etudiant {
     private String id;
     private String nom;
-    private String prenom;
+    private String email;
+    private String motDePasse;
     private LocalDate dateNaissance;
-    private List<Cours> coursSuivis;
+    private String adresse;
+    private String telephone;
 
-    public Etudiant(String id, String nom, String prenom, LocalDate dateNaissance) {
+    // Constructeur avec tous les paramètres
+    public Etudiant(String id, String nom, String email, String motDePasse,
+                    LocalDate dateNaissance, String adresse, String telephone) {
         this.id = id;
         this.nom = nom;
-        this.prenom = prenom;
+        this.email = email;
+        this.motDePasse = motDePasse;
         this.dateNaissance = dateNaissance;
-        this.coursSuivis = new ArrayList<>();
+        this.adresse = adresse;
+        this.telephone = telephone;
     }
 
-    public String getId() { return id; }
-    public String getNom() { return nom; }
-    public String getPrenom() { return prenom; }
-    public List<Cours> getCoursSuivis() { return coursSuivis; }
+    // Getters
+    public String getId() {
+        return id;
+    }
 
-    public void ajouterCours(Cours cours) {
-        coursSuivis.add(cours);
+    public String getNom() {
+        return nom;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getMotDePasse() {
+        return motDePasse;
+    }
+
+    public LocalDate getDateNaissance() {
+        return dateNaissance;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public String getTelephone() {
+        return telephone;
     }
 }

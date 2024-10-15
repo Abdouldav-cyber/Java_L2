@@ -1,23 +1,41 @@
 package services;
 
 import models.Etudiant;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class EtudiantService {
-    private List<Etudiant> etudiants = new ArrayList<>();
+    private List<Etudiant> etudiants; // Déclaration de la liste d'étudiants
 
-    // Ajout de la fonctionnalité de recherche
-    public List<Etudiant> rechercherEtudiant(String keyword) {
-        return etudiants.stream()
-                .filter(e -> e.getNom().toLowerCase().contains(keyword.toLowerCase())
-                        || String.valueOf(e.getId()).equals(keyword))
-                .collect(Collectors.toList());
+    // Constructeur
+    public EtudiantService() {
+        this.etudiants = new ArrayList<>(); // Initialisation de la liste
     }
 
-    // Autres méthodes : ajouter, modifier, supprimer des étudiants
+    // Méthode pour ajouter un étudiant
     public void ajouterEtudiant(Etudiant etudiant) {
-        etudiants.add(etudiant);
+        etudiants.add(etudiant); // Ajout de l'étudiant à la liste
+    }
+
+    // Méthode pour rechercher un étudiant par nom ou ID
+    public List<Etudiant> rechercherEtudiant(String keyword) {
+        List<Etudiant> resultats = new ArrayList<>();
+        for (Etudiant etudiant : etudiants) {
+            if (etudiant.getNom().contains(keyword) || etudiant.getId().equals(keyword)) {
+                resultats.add(etudiant);
+            }
+        }
+        return resultats; // Retourne la liste des résultats
+    }
+
+    // Méthode pour vérifier la connexion
+    public boolean verifierConnexion(String email, String motDePasse) {
+        for (Etudiant etudiant : etudiants) {
+            if (etudiant.getEmail().equals(email) && etudiant.getMotDePasse().equals(motDePasse)) {
+                return true; // Connexion réussie
+            }
+        }
+        return false; // Connexion échouée
     }
 }

@@ -1,17 +1,25 @@
 package models;
 
 public class Resultat {
-    private int note;
-    private String cours;
-    private boolean valide;
+    private String etudiantId;
+    private String coursId;
+    private double note;
 
-    public Resultat(int note, String cours) {
+    public Resultat(String etudiantId, String coursId, double note) {
+        this.etudiantId = etudiantId;
+        this.coursId = coursId;
         this.note = note;
-        this.cours = cours;
-        this.valide = note >= 10;
     }
 
-    public int getNote() { return note; }
-    public String getCours() { return cours; }
-    public boolean isValide() { return valide; }
+    public String getEtudiantId() {
+        return etudiantId;
+    }
+
+    public String getCoursId() {
+        return coursId;
+    }
+
+    public double getNote() {
+        return note;
+    }
 }
